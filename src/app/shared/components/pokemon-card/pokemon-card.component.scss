@@ -1,0 +1,11 @@
+:host {
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #80808022;
+    opacity: .3;
+    transition: opacity .4s;
+    &:hover {
+        opacity: 1;
+    }
+}

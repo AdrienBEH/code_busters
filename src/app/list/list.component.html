@@ -1,6 +1,8 @@
-<ng-container *ngIf="pokemonList$ | async as pokemonList">
-    <app-pokemon-card
-        *ngFor="let pokemon of pokemonList.results"
-        [pokemon]="pokemon">
-    </app-pokemon-card>
-</ng-container>
+<div class="viewport" appScrollable>
+    <div class="content" *ngIf="pokemonList$ | async as pokemonList">
+        <app-pokemon-card
+            *ngFor="let pokemon of pokemonList.results"
+            [pokemon]="pokemon">
+        </app-pokemon-card>
+    </div>
+</div>

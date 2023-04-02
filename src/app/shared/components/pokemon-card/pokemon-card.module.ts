@@ -14,7 +14,7 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
         MatButtonModule,
         MatIconModule,
         MatGridListModule,
-        PipesModule
+        PipesModule,
     ],
     declarations: [PokemonCardComponent],
     exports: [PokemonCardComponent]

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokemonCardModule } from 'src/app/shared/components';
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from './list.component';
+import { DirectivesModule } from 'src/app/shared/directives/directives.module';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { ListComponent } from './list.component';
         ListRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        PokemonCardModule
+        PokemonCardModule,
+        DirectivesModule,
     ],
     declarations: [ListComponent],
     providers: [

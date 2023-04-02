@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+===
+# Ce que j'aurais voulu
+query params sur https://pokeapi.co/api/v2/pokemon/ pour filtrer en fonction du nom, du type, ...
+informations supplémentaires sur https://pokeapi.co/api/v2/pokemon/ comme le type, la generation, ...

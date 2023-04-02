@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from 'src/app/core/core.module';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CoreModule } from 'src/app/core/core.module';
     BrowserAnimationsModule,
     BrowserModule,
     CoreModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
