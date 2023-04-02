@@ -1,6 +1,7 @@
 <div class="viewport" appScrollable>
     <div class="content" *ngIf="pokemonList$ | async as pokemonList">
         <app-pokemon-card
+            [routerLink]="['/detail/', pokemon.name]"
             *ngFor="let pokemon of pokemonList.results"
             [pokemon]="pokemon">
         </app-pokemon-card>

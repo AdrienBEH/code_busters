@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then((m) => m.ListModule),
   },
   {
-    path: 'detail/:name',
+    path: 'detail/:pokemon_identifier',
     loadChildren: () => import('./detail/detail.module').then((m) => m.DetailModule),
   },
   {

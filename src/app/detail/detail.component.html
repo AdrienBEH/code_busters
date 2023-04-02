@@ -1,1 +1,7 @@
-detail
+<img [ngSrc]="pokemon.id|sprite" height="96" width="96" [alt]="pokemon.name + 'sprite'">
+<p>name: {{pokemon.species.name}}</p>
+<p>order: {{pokemon.id|order}}</p>
+<p>height: {{pokemon.height|meter|number:'1.1-1'}} m</p>
+<p>height: {{pokemon.height|foot}}</p>
+<p>weight: {{pokemon.weight|gram|number:'1.1-1'}} kg</p>
+<p>weight: {{pokemon.weight|pound|number:'1.1-1'}} lbs.</p>
