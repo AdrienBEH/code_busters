@@ -4,16 +4,16 @@ import { PokemonCardComponent } from './pokemon-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
+import { NgOptimizedImage } from '@angular/common'
 
 @NgModule({
     imports: [
         CommonModule,
-        MatCardModule,
         MatButtonModule,
+        MatCardModule,
         MatIconModule,
-        MatGridListModule,
+        NgOptimizedImage,
         PipesModule,
     ],
     declarations: [PokemonCardComponent],
