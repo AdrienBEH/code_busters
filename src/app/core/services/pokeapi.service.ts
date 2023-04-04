@@ -30,6 +30,10 @@ constructor(
     public getPokemon(identifier: number|string): Observable<Pokeapi.Pokemon> {
         return this.httpClient.get<Pokeapi.Pokemon>(`${this.POKEAPI_URL}pokemon/${identifier}/`)
     }
+
+    public getSpecies(pokemon: Pokeapi.Pokemon): Observable<Pokeapi.Species> {
+        return this.httpClient.get<Pokeapi.Species>(pokemon.species.url);
+    }
 }
 
 function PokeapiPokemonPartialToPokeshowcasePokemonPartial(pokemon: Pokeapi.PokemonPartial): Pokeshowcase.PokemonPartial {

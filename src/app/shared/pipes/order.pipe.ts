@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OrderPipe implements PipeTransform {
     transform(order: number): string {
-        return `#${'0'.repeat(4 - order.toString().length)}${order}`;
+        return order.toString().length >= 5 ? `#${order}` : `#${'0'.repeat(4 - order.toString().length)}${order}`;
     }
 }

@@ -1,7 +1,53 @@
-<img [ngSrc]="pokemon.id|sprite" height="96" width="96" [alt]="pokemon.name + 'sprite'">
-<p>name: {{pokemon.species.name}}</p>
-<p>order: {{pokemon.id|order}}</p>
-<p>height: {{pokemon.height|meter|number:'1.1-1'}} m</p>
-<p>height: {{pokemon.height|foot}}</p>
-<p>weight: {{pokemon.weight|gram|number:'1.1-1'}} kg</p>
-<p>weight: {{pokemon.weight|pound|number:'1.1-1'}} lbs.</p>
+<article cols="4" rowHeight="60px" [appColor]="pokemon.types[0].type.name">
+    <div class="grid-item grid-3 name">{{pokemon.species.name|uppercase}}</div>
+    <div class="grid-item grid-1 order">{{pokemon.id|order}}</div>
+    <div class="grid-item grid-4 sprite">
+        <img [ngSrc]="pokemon.id|sprite" height="96" width="96" [alt]="pokemon.name + 'sprite'">
+    </div>
+    <div class="grid-item grid-2 type">
+        <label>Type</label>
+        <div>
+            <span
+                *ngFor="let typeInfo of pokemon.types"
+                class="snack"
+                [appColor]="typeInfo.type.name">
+                {{typeInfo.type.name}}
+            </span>
+        </div>
+    </div>
+    <div class="grid-item grid-2 ability">
+        <label>Ability</label>
+        <div>
+            <span *ngFor="let abilityInfo of pokemon.abilities">
+                <mat-icon *ngIf="abilityInfo.is_hidden" fontIcon="visibility_off"></mat-icon>
+                {{abilityInfo.ability.name}}
+            </span>
+        </div>
+    </div>
+    <div class="grid-item grid-2 height">
+        <label>Height</label>
+        <div>
+            <span>{{pokemon.height|foot}}</span>
+            <span>{{pokemon.height|meter|number:'1.1-1'}} m</span>
+        </div>
+    </div>
+    <div class="grid-item grid-2 weight" [ngClass]="{card: true}">
+        <label>Weight</label>
+        <div>
+            <span>{{pokemon.weight|pound|number:'1.1-1'}} lbs.</span>
+            <span>{{pokemon.weight|gram|number:'1.1-1'}} kg</span>
+        </div>
+    </div>
+    <div class="grid-item grid-4 ev">
+        <label>EV yield</label>
+        <div>
+            <div
+                *ngFor="let statInfo of pokemon.stats"
+                class="ev-{{statInfo.stat.name}}">
+                <span>{{statInfo.effort}}</span>
+                <span>{{statInfo.stat.name | i18nSelect:evMap}}</span>
+            </div>
+        </div>
+    </div>
+</article>
+<app-radar-chart [pokemon]="pokemon"></app-radar-chart>

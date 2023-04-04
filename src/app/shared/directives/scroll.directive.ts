@@ -11,7 +11,9 @@ export class ScrollDirective {
     private readonly _elementScrolled$: Subject<Event> = new Subject;
     public readonly elementScrolled$: Observable<Event> = this._elementScrolled$.asObservable();
   
-    constructor(public elementRef: ElementRef) {}
+    constructor(public elementRef: ElementRef) {
+        this.elementRef.nativeElement.style['overflow'] = 'auto';
+    }
 
     @HostListener('scroll', ['$event'])
     private elementScrolled(event: Event) {

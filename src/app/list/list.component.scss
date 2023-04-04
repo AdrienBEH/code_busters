@@ -1,10 +1,44 @@
-.viewport {
-    height: 100%;
-    width: 100%;
+:host {
+    max-height: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
     overflow: auto;
-    .content {
-        display: grid;
-        gap: 36px;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    [appscrollable] {
+        height: 100%;
+        width: 100%;
+        padding: 6px 12px;
+        box-sizing: border-box;
+        > div {
+            display: grid;
+            gap: 36px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+    app-pokemon-card {
+        cursor: pointer;
+        background-color: var(--color-dark-blue);
+        color: var(--color-white);
+        opacity: .8;
+        transition: opacity .6s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .spinner-card {
+        background-color: var(--color-dark-blue);
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    .snack {
+        position: fixed;
+        right: 30px;
+        top: 52px;
+        z-index: 200;
+        > mat-icon {
+            transform: scale(.7);
+        }
     }
 }

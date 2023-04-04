@@ -1,0 +1,111 @@
+:host {
+    align-items: center;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    height: 100%;
+    justify-content: center;
+    article {
+        border-radius: 8px;
+        display: grid;
+        gap: 4px;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 6px;
+    }
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        border: 3px solid rgba(255, 255, 255, 0);
+        font-weight: 700;
+        text-align: center;
+        > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            border-radius: 8px;
+            gap: 4px;
+            padding: 5px;
+        }
+        &.grid-1 {
+            grid-column: span 1;
+        }
+        &.grid-2 {
+            grid-column: span 2;
+        }
+        &.grid-3 {
+            grid-column: span 3;
+        }
+        &.grid-4 {
+            grid-column: span 4;
+        }
+        .ev-{
+            &hp {
+                background-color: #FF5959;
+            }
+            &attack {
+                background-color: #F5AC78;
+            }
+            &defense {
+                background-color: #FAE078;
+            }
+            &special-attack {
+                background-color: #9DB7F5;
+            }
+            &special-defense {
+                background-color: #A7DB8D;
+            }
+            &speed {
+                background-color: #FA92B2;
+            }
+        }
+    }
+    .name,
+    .order,
+    .sprite {
+        font-weight: 700;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .type {
+        display: flex;
+        flex-direction: column;
+        > div {
+            align-items: center;
+            border-radius: 8px;
+            display: flex;
+            flex: 1;
+            gap: 4px;
+            justify-content: center;
+            padding: 5px;
+        }
+    }
+    .ability > div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        > span {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            > mat-icon {
+                transform: scale(.8);
+            }
+        }
+    }
+    .height,
+    .weight {
+        > div {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .ev > div {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        > div {
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+    }
+}

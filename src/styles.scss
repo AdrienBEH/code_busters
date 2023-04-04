@@ -1,4 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --color-dark-blue: #0c2a4d;
+    --color-light-blue: #003b72;
+    --color-grey: #bfbfbf;
+    --color-red: #e90026;
+    --color-white: #fff;
+    --color-cyan: #8ad8ff;
+}
+html,
+body {
+    height: 100%;
+    max-height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+    display: flex;
+    background-color: var(--color-grey);
+    color: var(--color-dark-blue);
+    &::before {
+        background-image: url('assets/pokemongo_pokeball.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: .3;
+        content: '';
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: 0;
+    }
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.snack {
+    align-items: center;
+    background-color: var(--color-light-blue);  // TODO Remove it for directive instead!
+    border-radius: 4px;
+    color: var(--color-white);                  // TODO Remove it for directive instead!
+    display: flex;
+    font-size: .8em;
+    font-weight: 700;
+    padding: 0px 6px;
+}
