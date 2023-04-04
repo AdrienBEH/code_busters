@@ -1,8 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
 import { BehaviorSubject, filter, mergeMap, Observable, scan, tap } from 'rxjs';
-import { PokeapiService } from 'src/app/core/services/pokeapi.service';
 import { Pokeapi, Pokeshowcase } from 'src/app/shared';
+import { PokeapiService } from 'src/app/core/services/pokeapi.service';
 import { ScrollDirective } from 'src/app/shared/directives/scroll.directive';
+import { SubscriptionSupervisorComponent } from 'src/app/shared/components/subscription-supervisor/subscription-supervisor.component';
 
 @Component({
     selector: 'app-list',
@@ -10,7 +11,7 @@ import { ScrollDirective } from 'src/app/shared/directives/scroll.directive';
     styleUrls: ['list.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements AfterViewInit {
+export class ListComponent extends SubscriptionSupervisorComponent implements AfterViewInit, OnDestroy {
     @ViewChild(ScrollDirective) scrollDirective!: ScrollDirective;
     private readonly _offset$: BehaviorSubject<number> = new BehaviorSubject<number>(0)
     public readonly offset$: Observable<number> = this._offset$.asObservable();
@@ -45,16 +46,23 @@ export class ListComponent implements AfterViewInit {
 
     constructor(
         private pokeapiService: PokeapiService
-    ) {}
+    ) {
+        super();
+    }
 
-    public ngAfterViewInit(): void {
+    ngAfterViewInit(): void {
         this.scrollDirective.elementScrolled$.pipe(
+            this.unsubsribeOnDestroy,
             filter(_=> !this.requestPending),
         ).subscribe(_ => {
             if (this.scrollDirective.measureScrollOffset('bottom') <= 0) {
-                this.increment();;
+                this.increment();
             }
         })
+    }
+
+    override ngOnDestroy(): void {
+        super.ngOnDestroy();
     }
 
     private increment(): void {
